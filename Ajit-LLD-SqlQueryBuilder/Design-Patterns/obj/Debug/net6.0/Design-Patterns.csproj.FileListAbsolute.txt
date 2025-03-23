@@ -1,0 +1,15 @@
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\bin\Debug\net6.0\Design-Patterns.exe
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\bin\Debug\net6.0\Design-Patterns.deps.json
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\bin\Debug\net6.0\Design-Patterns.runtimeconfig.json
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\bin\Debug\net6.0\Design-Patterns.dll
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\bin\Debug\net6.0\Design-Patterns.pdb
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.csproj.AssemblyReference.cache
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.AssemblyInfoInputs.cache
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.AssemblyInfo.cs
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.csproj.CoreCompileInputs.cache
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.dll
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\refint\Design-Patterns.dll
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.pdb
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\Design-Patterns.genruntimeconfig.cache
+C:\Users\vaish\source\repos\Design-Patterns\Design-Patterns\obj\Debug\net6.0\ref\Design-Patterns.dll
