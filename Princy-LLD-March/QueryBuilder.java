@@ -89,12 +89,17 @@ public class QueryBuilder {
 }
 
 /*
+
 Output:
-
+1.
 princypareek@Princys-MacBook-Pro Princy-LLD-March % javac QueryBuilder.java
-
-princypareek@Princys-MacBook-Pro Princy-LLD-March % java QueryBuilder  
-    
+princypareek@Princys-MacBook-Pro Princy-LLD-March % java QueryBuilder
 SELECT name, age FROM users WHERE age > 18 GROUP BY users ORDER BY age DESC
+
+2.
+princypareek@Princys-MacBook-Pro Princy-LLD-March % javac QueryBuilder.java
+princypareek@Princys-MacBook-Pro Princy-LLD-March % java QueryBuilder
+Query Error: SELECT and FROM can't be null!
+
 
  */
