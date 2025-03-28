@@ -46,7 +46,7 @@ public class QueryBuilder {
         query.append("SELECT ")
                 .append(Optional.ofNullable(this.select).orElseThrow(()->new RuntimeException("Select clause is mandatory")))
                 .append(" FROM ")
-                .append(Optional.ofNullable(this.from).orElseThrow(()->new RuntimeException("Select clause is mandatory")))
+                .append(Optional.ofNullable(this.from).orElseThrow(()->new RuntimeException("From clause is mandatory")))
                 .append(this.where==null?"":" WHERE "+ this.where)
                 .append(this.groupBy==null?"":" GROUP BY "+ this.groupBy)
                 .append(this.having==null?"":" HAVING "+ this.having)
