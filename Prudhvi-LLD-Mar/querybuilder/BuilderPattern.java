@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Requirements:
  * 1. Create a class to implement QueryBuilder following Builder design pattern
@@ -12,11 +14,15 @@ public class BuilderPattern {
 
   public static void main(String[] args) {
     System.out.println("Query Builder started");
-    String query = new QueryBuilder()
+    String query1 = new QueryBuilder()
         .select("name, email")
         .from("sample_table")
+        .where("     ")
         .build();
-    System.out.println("Query1: " + query);
+    System.out.println("Query1: " + query1);
+    /*
+       Query1 output: SELECT name, email FROM sample_table;
+    */
 
     String query2 = new QueryBuilder()
         .select("name, email")
@@ -26,13 +32,56 @@ public class BuilderPattern {
         .build();
     System.out.println("Query2: " + query2);
 
+    /*
+     Query2 output: SELECT name, email FROM sample_table WHERE name='prudhvi' ORDER BY name desc;
+     */
+
     String query3 = new QueryBuilder()
-        .from("sample_table")
-        .where("name='prudhvi'")
+        .select("name, sum(amount)")
+        .from("salary")
+        .where("amount > 100")
+        .groupBy("name")
         .orderBy("name desc")
         .build();
-    System.out.println("Query2: " + query3);
+    System.out.println("Query3: " + query3);
+    /*
+    Query3 output: SELECT name, sum(amount) FROM sample_table WHERE amount > 100 GROUP BY name ORDER BY name desc;
+     */
+
+    String selectWithBlank = new QueryBuilder()
+        .select("  ")
+        .from("salary")
+        .where("amount > 100")
+        .groupBy("name")
+        .orderBy("name desc")
+        .build();
+    System.out.println("Query4: " + selectWithBlank);
+    /*
+    Query4 output: SELECT is mandatory! and it can't be blank or null!
+     */
+
+    String selectNotPassed = new QueryBuilder()
+        .from("salary")
+        .where("amount > 100")
+        .groupBy("name")
+        .orderBy("name desc")
+        .build();
+    System.out.println("Query5: " + selectNotPassed);
+  /*
+   Query5 output: SELECT is mandatory! and it can't be blank or null!
+   */
+    String fromIsBlank = new QueryBuilder()
+        .select("name")
+        .from("")
+        .where("amount > 100")
+        .groupBy("name")
+        .orderBy("name desc")
+        .build();
+    System.out.println("Query6: " + fromIsBlank);
   }
+  /*
+   Query6 output: FROM is mandatory! and it can't be blank or null!
+   */
 }
 
 class Query {
@@ -116,26 +165,27 @@ class QueryBuilder {
   }
 
   public String build() {
-    if (this.query.getSelect() == null) {
-      throw new RuntimeException("SELECT is mandatory!");
+    if (Objects.isNull(this.query.getSelect()) || this.query.getSelect().isBlank()) {
+      throw new RuntimeException("SELECT is mandatory! and it can't be blank or null!");
     }
-    if (this.query.getFrom() == null) {
-      throw new RuntimeException("FROM is mandatory!");
+    if (Objects.isNull(this.query.getFrom()) || this.query.getFrom().isBlank()) {
+      throw new RuntimeException("FROM is mandatory! and it can't be blank or null!");
     }
 
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append("SELECT ").append(this.query.getSelect())
         .append(" FROM ").append(this.query.getFrom());
 
-    if (this.query.getWhere() != null) {
+    if (Objects.nonNull(this.query.getWhere()) && !this.query.getWhere().isBlank()) {
       stringBuilder.append(" WHERE ").append(this.query.getWhere());
     }
-    if (this.query.getGroupBy() != null) {
+    if (Objects.nonNull(this.query.getGroupBy()) && !this.query.getGroupBy().isBlank()) {
       stringBuilder.append(" GROUP BY ").append(this.query.getGroupBy());
     }
-    if (this.query.getOrderBy() != null) {
+    if (Objects.nonNull(this.query.getOrderBy()) && !this.query.getOrderBy().isBlank()) {
       stringBuilder.append(" ORDER BY ").append(this.query.getOrderBy());
     }
+    stringBuilder.append(";");
 
     return stringBuilder.toString();
   }
