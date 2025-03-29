@@ -1,5 +1,3 @@
-package systemdesign.lld.designpattern.builder;
-
 class BuilderDesignPattern {
     public static void main(String[] args) {
         Query query = QueryBuilder.getQueryBuilder().select("name").from("employee").where("name = 'shivam'").groupBy("name").orderBy("ASC").build();
