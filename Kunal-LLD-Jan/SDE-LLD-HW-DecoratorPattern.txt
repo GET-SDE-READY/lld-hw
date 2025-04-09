@@ -1,0 +1,97 @@
+using System;
+
+
+//Design Pattern - Structural Design Pattern - Decorator Pattern - Kunal 
+//interface
+public interface ICoffee
+{
+    double GetCost();
+    string GetDescription();
+}
+
+//implementation of Interface
+public class SimpleCoffee:ICoffee
+{
+    public double GetCost()
+    {
+        return 10.0;
+    }
+    
+    public string GetDescription()
+    {
+        return "Simple Coffee";
+    }
+}
+
+//Decorator Abstract class
+public abstract class CoffeeDecorator:ICoffee
+{
+    protected ICoffee _coffee;
+    
+    public CoffeeDecorator(ICoffee coffee)
+    {
+        _coffee = coffee;
+    }
+    
+    public virtual double GetCost()
+    {
+        return _coffee.GetCost();
+    }
+    
+    public virtual string GetDescription()
+    {
+        return _coffee.GetDescription();
+    }
+}
+
+
+//Concrete implementation of Decorator
+//MilkDecorator
+public class MilkDecorator:CoffeeDecorator
+{
+    public MilkDecorator(ICoffee coffee):base(coffee){}
+    
+    public override double GetCost()
+    {
+        return base.GetCost() + 5.0;
+    }
+    
+    public override string GetDescription()
+    {
+        return base.GetDescription() + ", Milk";
+    }
+}
+
+//SugarDecorator
+public class SugarDecorator:CoffeeDecorator
+{
+    public SugarDecorator(ICoffee coffee):base(coffee){}
+    
+    public override double GetCost()
+    {
+        return base.GetCost() + 2.0;
+    }
+    
+    public override string GetDescription()
+    {
+        return base.GetDescription() + ", Sugar";
+    }
+}
+
+
+//Usage
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		ICoffee myCoffee = new SimpleCoffee();
+		Console.WriteLine(myCoffee.GetDescription() +" : "+myCoffee.GetCost());
+		
+		ICoffee myMilkCoffee = new MilkDecorator(myCoffee);
+		Console.WriteLine(myMilkCoffee.GetDescription() +" : "+myMilkCoffee.GetCost());
+		
+		ICoffee myMilkSugarCoffee = new SugarDecorator(myMilkCoffee);
+		Console.WriteLine(myMilkSugarCoffee.GetDescription() +" : "+myMilkSugarCoffee.GetCost());
+	}
+}
