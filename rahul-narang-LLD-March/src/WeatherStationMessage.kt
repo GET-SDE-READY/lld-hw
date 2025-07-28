@@ -1,1 +1,0 @@
-data class WeatherStationMessage(val temp: Double, val humidity: Double, val pressure: Double)
