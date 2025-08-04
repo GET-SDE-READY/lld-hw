@@ -13,7 +13,11 @@ public class Logger {
 
     public static synchronized Logger getInstance() {
         if (instance == null) {
-            instance = new Logger();
+            synchronized (Logger.class) {
+                if (instance == null) {
+                    instance = new Logger();
+        }
+            }
         }
         return instance;
     }
