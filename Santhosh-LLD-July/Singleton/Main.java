@@ -33,3 +33,22 @@ class MySingleton {
     }
 
 }
+
+//Bill Pugh Singleton
+
+/* 
+public class MySingleton {
+    // Private constructor prevents instantiation from other classes
+    private MySingleton() { }
+
+    // Static inner class - loaded only when referenced
+    private static class Holder {
+        private static final MySingleton INSTANCE = new MySingleton();
+    }
+
+    // Global access point
+    public static MySingleton getInstance() {
+        return Holder.INSTANCE;
+    }
+}
+*/
